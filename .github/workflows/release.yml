@@ -1,0 +1,16 @@
+name: Release
+# v* 태그를 푸시하면 docs/의 확장 zip을 릴리스에 자동 첨부합니다.
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: docs/BatchRenameComps_v*.zip
+          generate_release_notes: true
