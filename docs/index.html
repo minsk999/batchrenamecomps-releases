@@ -205,6 +205,30 @@
     .layout{grid-template-columns:1fr; gap:0;}
     nav.toc{display:none;}
   }
+  /* 체인지로그 - 도트/세로선 중심 정렬 + 접기/펴기 */
+  .changelog{position:relative; padding-left:26px;}
+  .changelog::before{content:""; position:absolute; left:5px; top:14.5px; height:var(--cl-line-h, 0); width:2px; background:var(--line);}
+  .cl-entry{position:relative; margin-bottom:10px;}
+  .cl-entry:last-child{margin-bottom:0;}
+  .cl-entry::before{content:""; position:absolute; left:-25.5px; top:9px; width:11px; height:11px; border-radius:50%; background:var(--pill); border:2px solid var(--bg); box-sizing:border-box; z-index:1;}
+  .cl-entry.current::before{background:var(--orange);}
+  .cl-head{display:flex; align-items:center; gap:9px; padding:3px 0; cursor:pointer; user-select:none; -webkit-user-select:none; list-style:none;}
+  .cl-head::-webkit-details-marker{display:none;}
+  .cl-chev{margin-left:auto; color:var(--ink-3); transition:transform .28s cubic-bezier(.4,0,.2,1); display:inline-flex;}
+  .cl-chev svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  details[open] > .cl-head .cl-chev{transform:rotate(180deg);}
+  .cl-ver{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:14px; color:var(--ink);}
+  .cl-badge{font-size:11px; font-weight:700; color:var(--orange); background:var(--orange-bg); padding:2px 8px; border-radius:20px;}
+  .cl-date{font-size:12.5px; color:var(--ink-3); font-family:'JetBrains Mono',monospace;}
+  .cl-body{display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s cubic-bezier(.4,0,.2,1);}
+  details[open] > .cl-body{grid-template-rows:1fr;}
+  details.cl-closing[open] > .cl-body{grid-template-rows:0fr;}
+  details.cl-opening[open] > .cl-body{grid-template-rows:0fr;}
+  details.cl-closing[open] > .cl-head .cl-chev{transform:rotate(0deg);}
+  details.cl-opening[open] > .cl-head .cl-chev{transform:rotate(0deg);}
+  .cl-body-inner{overflow:hidden;}
+  .changelog ul{margin:8px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:5px;}
+  .changelog li{font-size:14px; color:var(--ink-2); line-height:1.65;}
 </style>
 </head>
 <body>
@@ -217,7 +241,7 @@
       </span>
       BatchRenameComps
     </div>
-    <span class="ver">v1.0.0</span>
+    <span class="ver">v1.0.1</span>
     <span class="spacer"></span>
     <button class="theme-btn" id="theme" aria-label="테마 전환">
       <svg id="theme-ic" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -242,6 +266,7 @@
       <a href="#backup">설정 백업</a>
       <a href="#script">스크립트(.jsx)</a>
       <a href="#faq">자주 묻는 질문</a>
+      <a href="#changelog">변경 내역</a>
     </nav>
 
     <main>
@@ -264,10 +289,10 @@
 
         <div class="card dlcard">
           <div class="dlinfo">
-            <div class="dltitle">BatchRenameComps <span class="ver">v1.0.0</span></div>
+            <div class="dltitle">BatchRenameComps <span class="ver">v1.0.1</span></div>
             <div class="dlmeta">Windows · macOS 설치 패키지 (ZIP) · 스크립트 .jsx 포함</div>
           </div>
-          <a class="dlbtn" href="BatchRenameComps_v1.0.0.zip" download>
+          <a class="dlbtn" href="BatchRenameComps_v1.0.1.zip" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14"/></svg>
             <span>다운로드 <span class="sz">ZIP</span></span>
           </a>
@@ -602,7 +627,30 @@
         <div class="note warn"><span class="ic">!</span><span>문제가 계속되면 <b>팀장(구민석)</b>에게 화면과 증상을 알려주세요.</span></div>
       </section>
 
-      <footer>BatchRenameComps · 영상팀 내부용 · 문의: 팀장(구민석)</footer>
+      <!-- 14 변경 내역 -->
+      <section id="changelog">
+        <div class="sec-head"><span class="sec-num">14</span><h2>변경 내역 (Changelog)</h2></div>
+        <div class="card">
+          <div class="changelog">
+            <details class="cl-entry current" open>
+              <summary class="cl-head"><span class="cl-ver">v1.0.1</span><span class="cl-date">2026-06-13</span><span class="cl-badge">최신</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+              <div class="cl-body"><div class="cl-body-inner"><ul><li><b>프리미어 프로젝트 저장</b> - 폴더 버튼으로 만든 로컬 폴더트리에 프리미어 프로젝트가 저장돼요. (이전엔 애프터이펙트만 저장됐어요)</li>
+                <li><b>폴더 버튼으로 트리 생성 시 소스 자동 복사</b> - 프로젝트에서 분류된 소스 파일이 로컬 폴더트리의 해당 폴더로 함께 복사돼요. (프로젝트는 복사본을 참조, 원본은 유지)</li>
+                <li><b>임포트+자동분류 안정화</b> - 소스 파일이 로컬 폴더트리의 올바른 폴더로 복제되고, 기존 트리 구조가 망가지지 않아요.</li>
+                <li><b>빈 로컬트리 생성 시 필드 자동 입력</b> - 입력한 광고주·캠페인·작업내용 등이 패널 입력칸에 자동으로 채워져요.</li>
+                <li><b>안내창 정리</b> - 'AE 전용' 같은 정보성 안내창의 불필요한 '취소' 버튼을 없애 '확인' 하나로 정리했어요.</li>
+                <li>자동 렌더 완료 후 뜨던 알림을 없앴어요.</li></ul></div></div>
+            </details>
+            <details class="cl-entry">
+              <summary class="cl-head"><span class="cl-ver">v1.0.0</span><span class="cl-date">2026-06-13</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+              <div class="cl-body"><div class="cl-body-inner"><ul><li>첫 정식 배포 - 컴포지션·시퀀스 일괄 이름 변경, 폴더트리 생성, 소스 자동 분류, 프로젝트 저장, 렌더링.</li>
+                <li>애프터이펙트 · 프리미어 프로 CEP 확장.</li></ul></div></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <footer>BatchRenameComps v1.0.1 · 영상팀 내부용 · 문의: 팀장(구민석)</footer>
     </main>
   </div>
 </div>
@@ -639,10 +687,63 @@
   const links = [...document.querySelectorAll('nav.toc a')];
   const map = {};
   links.forEach(a=>{ const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) map[id]=a; });
-  const spy = new IntersectionObserver((es)=>{
-    es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map[e.target.id]; if(a) a.classList.add('active'); } });
-  }, {rootMargin:'-30% 0px -60% 0px'});
-  document.querySelectorAll('section').forEach(s=> spy.observe(s));
+  // TOC 활성 표시: 스크롤 위치 기준 '현재 섹션' 직접 계산 (관찰자 충돌 없음)
+  const secEls = [...document.querySelectorAll('section')].filter(s=> map[s.id]);
+  function updateActiveToc(){
+    let curId;
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+      curId = secEls[secEls.length-1].id;
+    } else {
+      const lineY = window.innerHeight * 0.32;
+      curId = secEls[0].id;
+      for (const el of secEls){ if (el.getBoundingClientRect().top <= lineY) curId = el.id; else break; }
+    }
+    links.forEach(l=> l.classList.toggle('active', l === map[curId]));
+  }
+  window.addEventListener('scroll', updateActiveToc, {passive:true});
+  window.addEventListener('resize', updateActiveToc);
+  updateActiveToc();
+  links.forEach(a=> a.addEventListener('click', ()=>{ links.forEach(l=>l.classList.remove('active')); a.classList.add('active'); }));
+
+  // 체인지로그 접기/펴기 + 타임라인 세로선 (첫~마지막 도트 중심까지만)
+  const clRoot = document.querySelector('.changelog');
+  const clEntries = clRoot ? [...clRoot.querySelectorAll('details.cl-entry')] : [];
+  function dotCenterY(entry){ return (entry.offsetTop) + 9 + 5.5; }
+  function updateTimelineLine(){
+    if (!clRoot || !clEntries.length) return;
+    const firstC = dotCenterY(clEntries[0]);
+    const lastC = dotCenterY(clEntries[clEntries.length - 1]);
+    clRoot.style.setProperty('--cl-line-h', Math.max(0, lastC - firstC) + 'px');
+  }
+  updateTimelineLine();
+  window.addEventListener('resize', updateTimelineLine);
+  clEntries.forEach(d=>{
+    const summary = d.querySelector('summary');
+    const body = d.querySelector('.cl-body');
+    let raf = null;
+    const followLine = () => { updateTimelineLine(); raf = requestAnimationFrame(followLine); };
+    const startFollow = () => { if (!raf) followLine(); };
+    const stopFollow = () => { if (raf) { cancelAnimationFrame(raf); raf = null; } updateTimelineLine(); };
+    summary.addEventListener('click', (e)=>{
+      e.preventDefault();
+      if (d.dataset.animating) return;
+      if (d.open) {
+        d.dataset.animating = '1';
+        d.classList.add('cl-closing');
+        startFollow();
+        const done = () => { body.removeEventListener('transitionend', done); d.classList.remove('cl-closing'); d.open = false; delete d.dataset.animating; stopFollow(); };
+        body.addEventListener('transitionend', done);
+      } else {
+        d.classList.add('cl-opening');
+        d.open = true;
+        void body.offsetHeight;
+        startFollow();
+        const done = () => { body.removeEventListener('transitionend', done); stopFollow(); };
+        body.addEventListener('transitionend', done);
+        requestAnimationFrame(() => { requestAnimationFrame(() => d.classList.remove('cl-opening')); });
+      }
+    });
+  });
 </script>
 </body>
 </html>
