@@ -1,0 +1,13 @@
+{
+  "version": "1.0.3",
+  "date": "2026-08-27",
+  "notes": [
+    "패널에서 바로 업데이트",
+    "프리미어 렌더 안내 수정",
+    "설정 화면에 버전 표시"
+  ],
+  "zip": "https://raw.githubusercontent.com/minsk999/batchrenamecomps-releases/main/docs/BatchRenameComps_v1.0.3.zip",
+  "sha256": "c5992e8392bdd80c370a247de73daabd87cef5422666c77aed30faa761a9737d",
+  "site": "https://minsk999.github.io/batchrenamecomps-releases/",
+  "minHost": "AEFT 18.4 / PPRO 15.4"
+}

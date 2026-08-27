@@ -241,7 +241,7 @@
       </span>
       BatchRenameComps
     </div>
-    <span class="ver">v1.0.2</span>
+    <span class="ver">v1.0.3</span>
     <span class="spacer"></span>
     <button class="theme-btn" id="theme" aria-label="테마 전환">
       <svg id="theme-ic" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -289,10 +289,10 @@
 
         <div class="card dlcard">
           <div class="dlinfo">
-            <div class="dltitle">BatchRenameComps <span class="ver">v1.0.2</span></div>
-            <div class="dlmeta">Windows · macOS 설치 패키지 (ZIP) · 스크립트 .jsx 포함</div>
+            <div class="dltitle">BatchRenameComps <span class="ver">v1.0.3</span></div>
+            <div class="dlmeta">Windows · macOS 설치 패키지 (ZIP) · 스크립트 .jsx 포함<br>애프터이펙트 2021(18.4) / 프리미어 프로 2021(15.4) 이상 필요</div>
           </div>
-          <a class="dlbtn" href="BatchRenameComps_v1.0.2.zip" download>
+          <a class="dlbtn" href="BatchRenameComps_v1.0.3.zip" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14"/></svg>
             <span>다운로드 <span class="sz">ZIP</span></span>
           </a>
@@ -633,7 +633,18 @@
         <div class="card">
           <div class="changelog">
             <details class="cl-entry current" open>
-              <summary class="cl-head"><span class="cl-ver">v1.0.2</span><span class="cl-date">2026-07-31</span><span class="cl-badge">최신</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+              <summary class="cl-head"><span class="cl-ver">v1.0.3</span><span class="cl-date">2026-08-27</span><span class="cl-badge">최신</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+              <div class="cl-body"><div class="cl-body-inner"><ul><li><b>패널에서 바로 업데이트</b> - 새 버전이 나오면 패널 위에 알림이 떠요. <b>지금 설치</b>를 누르면 내려받기부터 교체까지 알아서 처리하고, 프로그램을 재시작하면 적용돼요. 직접 확인하려면 패널 오른쪽 위 햄버거 &gt; <b>업데이트 확인</b>.</li>
+                <li><b>알림이 떠도 입력칸 폭이 그대로</b> - 알림이 뜰 때 오른쪽에 스크롤바가 생기면서 입력칸이 좁아지던 것을 고쳤어요.</li>
+                <li><b>버튼 글자 정렬 보정</b> - 버튼 안 글자가 아래로 치우치던 것을 바로잡았어요.</li>
+                <li><b>프리미어 렌더 안내 수정</b> - 프리미어에서 렌더 버튼을 누르면 <code>렌더할 컴프가 없습니다</code>라고 뜨던 것을 <code>렌더 기능은 After Effects에서만 지원됩니다</code>로 바로잡았어요. (렌더는 원래 애프터이펙트 전용이에요)</li>
+                <li><b>설정 화면에 버전 표시</b> - 설정 제목 옆에 지금 쓰는 버전이 보여요.</li>
+                <li><b>업데이트 알림창 정리</b> - 서버에 연결하지 못했을 뿐인데 <code>이전 버전으로 되돌렸어요</code>라고 뜨던 문구, 눌러도 반응이 없던 버튼, 설정 화면에서는 알림이 안 보이던 문제를 함께 고쳤어요. 색도 패널 톤에 맞췄어요.</li>
+                <li><b>설치 프로그램 개선</b> - 애프터이펙트나 프리미어가 켜져 있으면 설치를 멈추고 알려줘요. (켜진 채로 설치하면 파일이 잠겨서 반쪽만 설치되는데, 예전엔 그래도 "완료"라고 떴어요)</li>
+                <li><b>필요 버전</b> - 애프터이펙트 2021(18.4) / 프리미어 프로 2021(15.4) 이상이 필요해요. 그보다 낮으면 패널이 메뉴에 뜨지 않아요.</li></ul></div></div>
+            </details>
+            <details class="cl-entry">
+              <summary class="cl-head"><span class="cl-ver">v1.0.2</span><span class="cl-date">2026-07-31</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
               <div class="cl-body"><div class="cl-body-inner"><ul><li><b>프리미어도 소스 자동 복사</b> - 빈 로컬 폴더트리를 만들 때 프로젝트에 담긴 이미지·영상 소스가 폴더트리로 복사돼요. (이전엔 애프터이펙트만 됐어요. 빈(Bin)에 분류돼 있는 소스가 대상이에요)</li>
                 <li><b>작업자 이니셜 인식 개선</b> - 파일명 맨 뒤의 작업자 이니셜을 작업내용에서 걸러내요. 예를 들어 <code>260731_광고주_캠페인_컷편집_KMS</code>를 불러오면 작업내용에 <b>컷편집</b>만 들어가요.</li></ul></div></div>
             </details>
@@ -655,7 +666,7 @@
         </div>
       </section>
 
-      <footer>BatchRenameComps v1.0.2 · 영상팀 내부용 · 문의: 팀장(구민석)</footer>
+      <footer>BatchRenameComps v1.0.3 · 영상팀 내부용 · 문의: 팀장(구민석)</footer>
     </main>
   </div>
 </div>
