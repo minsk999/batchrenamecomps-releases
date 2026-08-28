@@ -1,13 +1,13 @@
 {
-  "version": "1.0.3",
-  "date": "2026-08-27",
+  "version": "1.0.4",
+  "date": "2026-08-28",
   "notes": [
-    "패널에서 바로 업데이트",
-    "프리미어 렌더 안내 수정",
-    "설정 화면에 버전 표시"
+    "파일 소실 위험 제거",
+    "대문자 광고주 이름 파괴 수정",
+    "실패하면 이유를 알려줍니다"
   ],
-  "zip": "https://raw.githubusercontent.com/minsk999/batchrenamecomps-releases/main/docs/BatchRenameComps_v1.0.3.zip",
-  "sha256": "c5992e8392bdd80c370a247de73daabd87cef5422666c77aed30faa761a9737d",
+  "zip": "https://raw.githubusercontent.com/minsk999/batchrenamecomps-releases/main/docs/BatchRenameComps_v1.0.4.zip",
+  "sha256": "0e9f070c7acefe59cbded95a356ba88984069c5f3068977ae1068497efbd6e20",
   "site": "https://minsk999.github.io/batchrenamecomps-releases/",
   "minHost": "AEFT 18.4 / PPRO 15.4"
 }

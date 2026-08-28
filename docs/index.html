@@ -241,7 +241,7 @@
       </span>
       BatchRenameComps
     </div>
-    <span class="ver">v1.0.3</span>
+    <span class="ver">v1.0.4</span>
     <span class="spacer"></span>
     <button class="theme-btn" id="theme" aria-label="테마 전환">
       <svg id="theme-ic" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -289,10 +289,10 @@
 
         <div class="card dlcard">
           <div class="dlinfo">
-            <div class="dltitle">BatchRenameComps <span class="ver">v1.0.3</span></div>
+            <div class="dltitle">BatchRenameComps <span class="ver">v1.0.4</span></div>
             <div class="dlmeta">Windows · macOS 설치 패키지 (ZIP) · 스크립트 .jsx 포함<br>애프터이펙트 2021(18.4) / 프리미어 프로 2021(15.4) 이상 필요</div>
           </div>
-          <a class="dlbtn" href="BatchRenameComps_v1.0.3.zip" download>
+          <a class="dlbtn" href="BatchRenameComps_v1.0.4.zip" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14"/></svg>
             <span>다운로드 <span class="sz">ZIP</span></span>
           </a>
@@ -633,7 +633,16 @@
         <div class="card">
           <div class="changelog">
             <details class="cl-entry current" open>
-              <summary class="cl-head"><span class="cl-ver">v1.0.3</span><span class="cl-date">2026-08-27</span><span class="cl-badge">최신</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+              <summary class="cl-head"><span class="cl-ver">v1.0.4</span><span class="cl-date">2026-08-28</span><span class="cl-badge">최신</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+              <div class="cl-body"><div class="cl-body-inner"><ul><li><b>파일이 사라질 수 있던 문제 수정</b> - 폴더를 통째로 옮길 때 복사가 실패해도 원본을 지워버리던 것을 고쳤어요. 이제 하나라도 실패하면 원본을 그대로 둡니다. 경로가 너무 길거나 파일이 열려 있으면 실패할 수 있는데, 예전엔 원본·사본이 함께 사라졌어요.</li>
+                <li><b>소스가 엉뚱한 파일로 연결되던 문제 수정</b> - 분류 폴더에 같은 이름의 파일이 이미 있으면 복사도 없이 그 파일로 연결해버렸어요. <code>A광고주/logo.png</code> 와 <code>B광고주/logo.png</code> 처럼 흔한 상황입니다. 이제 겹치지 않는 이름으로 복사합니다.</li>
+                <li><b>이미지 시퀀스 보호</b> - 시퀀스를 폴더트리로 복사하면 첫 프레임만 복사되면서 시퀀스가 정지 이미지 한 장으로 바뀌었어요. 이제 시퀀스는 건너뛰고 몇 개를 건너뛰었는지 알려줍니다.</li>
+                <li><b>대문자 광고주명이 지워지던 문제 수정</b> - <code>260828_LG_그램_컷편집_@ED</code> 에 작업자를 넣으면 광고주 <code>LG</code> 가 이니셜로 덮어써졌어요. <code>CJ</code>·<code>KIA</code>·<code>TVC</code>·<code>SNS</code> 처럼 대문자 영문이면 모두 해당됐습니다. 해상도도 광고주 앞에 끼어들었고요. 둘 다 고쳤어요.</li>
+                <li><b>불러오기가 작업자를 안 가져오던 문제 수정</b> - 남이 만든 컴프를 불러와 페이지만 고쳐도 원작업자 이니셜이 내 것으로 조용히 바뀌었어요. 이제 컴프에 적힌 작업자를 그대로 가져옵니다.</li>
+                <li><b>실패하면 이유를 알려줍니다</b> - 저장·렌더·파일열기·이름변경이 실패해도 아무 반응이 없던 경우가 있었어요. 스크립트 엔진이 아예 안 뜬 경우도 마찬가지였고요. 이제 무엇이 잘못됐는지 화면에 뜹니다.</li></ul></div></div>
+            </details>
+            <details class="cl-entry">
+              <summary class="cl-head"><span class="cl-ver">v1.0.3</span><span class="cl-date">2026-08-27</span><span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></summary>
               <div class="cl-body"><div class="cl-body-inner"><ul><li><b>패널에서 바로 업데이트</b> - 새 버전이 나오면 패널 위에 알림이 떠요. <b>지금 설치</b>를 누르면 내려받기부터 교체까지 알아서 처리하고, 프로그램을 재시작하면 적용돼요. 직접 확인하려면 패널 오른쪽 위 햄버거 &gt; <b>업데이트 확인</b>.</li>
                 <li><b>알림이 떠도 입력칸 폭이 그대로</b> - 알림이 뜰 때 오른쪽에 스크롤바가 생기면서 입력칸이 좁아지던 것을 고쳤어요.</li>
                 <li><b>버튼 글자 정렬 보정</b> - 버튼 안 글자가 아래로 치우치던 것을 바로잡았어요.</li>
@@ -666,7 +675,7 @@
         </div>
       </section>
 
-      <footer>BatchRenameComps v1.0.3 · 영상팀 내부용 · 문의: 팀장(구민석)</footer>
+      <footer>BatchRenameComps v1.0.4 · 영상팀 내부용 · 문의: 팀장(구민석)</footer>
     </main>
   </div>
 </div>
