@@ -1,13 +1,13 @@
 {
-  "version": "1.0.4",
-  "date": "2026-08-28",
+  "version": "1.0.5",
+  "date": "2026-09-03",
   "notes": [
-    "파일 소실 위험 제거",
-    "대문자 광고주 이름 파괴 수정",
-    "실패하면 이유를 알려줍니다"
+    "불러오기가 내 작업자 이니셜을 덮어쓰지 않습니다",
+    "렌더 방식(바로 렌더 / 큐에만 추가)을 처음 한 번 묻습니다",
+    "설정 내보내기에 작업자·자동 출력·툴팁이 포함됩니다"
   ],
-  "zip": "https://raw.githubusercontent.com/minsk999/batchrenamecomps-releases/main/docs/BatchRenameComps_v1.0.4.zip",
-  "sha256": "0e9f070c7acefe59cbded95a356ba88984069c5f3068977ae1068497efbd6e20",
+  "zip": "https://raw.githubusercontent.com/minsk999/batchrenamecomps-releases/main/docs/BatchRenameComps_v1.0.5.zip",
+  "sha256": "240782d0cb63f67223bf7be88f9bc527e10d46fffaf00808d9a49f3f65827e34",
   "site": "https://minsk999.github.io/batchrenamecomps-releases/",
   "minHost": "AEFT 18.4 / PPRO 15.4"
 }
